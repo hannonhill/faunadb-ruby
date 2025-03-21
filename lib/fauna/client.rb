@@ -1,3 +1,5 @@
+require 'faraday/net_http_persistent'
+
 module Fauna
   ##
   # The Ruby client for FaunaDB.
