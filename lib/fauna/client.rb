@@ -138,9 +138,9 @@ module Fauna
         request: { timeout: read_timeout, open_timeout: connection_timeout },
       ) do |conn|
         # Let us specify arguments so we can set stubs for test adapter
-        conn.adapter(*Array(adapter))
-        conn.basic_auth(credentials[0].to_s, credentials[1].to_s)
+        conn.request :authorization, :basic, credentials[0].to_s, credentials[1].to_s
         conn.response :fauna_decode
+        conn.adapter(*Array(adapter))
       end
     end
 
@@ -209,5 +209,5 @@ module Fauna
     end
   end
 
-  Faraday::Response.register_middleware fauna_decode: lambda { FaunaDecode }
+  Faraday::Response.register_middleware(fauna_decode: -> { Fauna::FaunaDecode })
 end
