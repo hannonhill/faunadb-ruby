@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
 
   s.add_runtime_dependency 'faraday', '~> 2.12.2'
-  s.add_runtime_dependency 'net-http-persistent', '~> 2.9'
+  s.add_runtime_dependency 'faraday-net_http_persistent', '~> 2.3'
   s.add_runtime_dependency 'json', '~> 2.10'
   s.add_development_dependency 'rspec', '~> 3.4'
   s.add_development_dependency 'rubocop', '~> 0.38.0'
